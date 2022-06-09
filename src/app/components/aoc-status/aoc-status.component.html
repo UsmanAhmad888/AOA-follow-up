@@ -1,12 +1,125 @@
 
-        <div class="d-flex">
-            <div>
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex align-items-center aocFollow">
                 <h5 >AOC Follow Up</h5>
     
-                <h6>2nd Cadence</h6>
+                <h6  >{{status?.cadenceIteration | ordinal}} Cadence</h6>
             </div>
             <div class="action">
-
+                <!-- <button type="button" class="btn btn-light rounded-pill">
+                    <i class="bi bi-clock-history"></i>
+                    08:08:33 am PDT
+                </button> -->
+                <!-- <button type="button" class="btn btn-outline-danger rounded-pill">Skip</button> -->
+                <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-toggle="dropdown" aria-expanded="false">
+                        Remind in ... <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><button class="dropdown-item" type="button">Action</button></li>
+                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
+                  </div> -->
+               
             </div>
+
+
         </div>
+            <!-- latest aoc status -->
+            
+            <div class="d-flex align-items-center aocCardheading">
+                <h5 >Last AOC Sent:</h5>
+            
+                <h6>{{status?.aocDate | date:'mediumDate'}}</h6>
+            </div>
+            
+            <div class="card bg-light py-4 px-2 ">
+                <div class="card-body">
+                 <div class="gridWrap ">
+                     <div class="gridDiv">
+                            <div class="textGroup">
+                                <label for="RequestId" class=" col-form-label">Request ID:</label>
+                           <span>{{status?.requestID || ''}}</span>
+                            </div>
+                            <div class="textGroup">
+                                <label for="" class="col-form-label">
+                                    HCP Name:
+                                </label>
+                                <span>{{(status?.hcpFirstName || '') + ' '  + (status?.hcpLastName || '') }}</span>
+                            </div>
+                            <div class="textGroup">
+                                <label for="" class="col-form-label">
+                                    Designation:
+                                </label>
+                           <span>{{status?.bestDegree || ''}}</span>
+                            </div>
+                            <div class="textGroup">
+                                <label for="" class="col-form-label">
+                                    HCP ID:
+                                </label>
+                           <span>{{status?.hcpId || ''}}</span>
+                            </div>
+                    
+                
+            
+                 </div>
+                 <div class="gridDiv div2">
+                     <div class="datediv">
+                        <div class="listitem">
+                            <div class="iconbox bglightblue">
+                                <img src="./assets/images/request-date.svg" alt="">
+                            </div>
+                            <h5>Request Date:</h5>
+                            <h6>{{status?.requestDate | date}}</h6>
+                        </div>
+                        <div class="listitem">
+                            <div class="iconbox bgblue">
+                                <img src="./assets/images/shipping.svg" alt="">
+                            </div>
+                            <h5>Date Shipped: </h5>
+                            <h6>{{status?.shippedDate | date}}</h6>
+                        </div>
+                        <div class="listitem">
+                            <div class="iconbox">
+                                <img src="./assets/images/delivery.svg" alt="">
+                            </div>
+                            <h5>Delivered Date: </h5>
+                            <h6>{{status?.deliveredDate | date}}</h6>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="gridDiv rightgrid">
+                    <div class="textGroup">
+                        <label for="RequestId" class=" col-form-label">Carrier: </label>
+                   <span style="text-transform: UPPERCASE">{{status?.carrier || ''}}</span>
+                    </div>
+                    <div class="textGroup">
+                        <label for="RequestId" class=" col-form-label">Tracking Number: </label>
+                   <span style="color: #2F8DE6">{{status?.trackingNumber || ''}}</span>
+                    </div>
+                    <div class="textGroup d-flex align-items-center">
+                        <label for="" class="col-form-label">
+                            Days Elapsed Since 
+            Delivery:
+                        </label>
+                   <span class="">
+                       {{status?.deliveryDays}}
+                       <!-- days -->
+                   </span>
+                    </div>
+                    <div class="textGroup">
+                        <label for="" class="col-form-label">
+                            Shipping Address:
+                        </label>
+                   <span>{{status?.shipToAddress || ''}}</span>
+                    </div>
+                   
+            
+            
+            
+            </div>
+                </div>
+              </div>
+            
     

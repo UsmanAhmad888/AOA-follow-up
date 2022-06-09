@@ -1,0 +1,166 @@
+.aocFollow {
+    font-family: "Lato", sans-serif;
+
+    h5 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+
+        line-height: 22px;
+        color: #0b0a0a;
+        margin-right: 27px;
+    }
+    h6 {
+        font-style: italic;
+        font-size: 18px;
+    }
+}
+.action {
+    button {
+        margin-left: 10px;
+        &.btn-outline-primary {
+            min-width: 110px;
+            height: 30.04px;
+            background: #ffffff;
+            border: 1px solid #1c3b98;
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+
+            color: #1c3b98;
+        }
+        &.btn-outline-danger {
+            border: 1px solid #d36673;
+            box-sizing: border-box;
+            border-radius: 29px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            width: 85px;
+            height: 30.04px;
+        }
+        &.btn-light {
+            width: 215px;
+            height: 40.06px;
+
+            background: #f7f7f7;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+
+            color: #000000;
+            i {
+                font-size: 20px;
+                margin-right: 12px;
+                color: #123597;
+            }
+        }
+    }
+}
+.delivery {
+    position: absolute;
+    bottom: 89px;
+}
+
+
+.carrier_label {
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.gridDiv.div2 {
+    border-right: 1px dashed transparent;
+    border-left: 1px dashed transparent;
+    padding: 0px 5%;
+    border-image: url("../../../assets/images/line.png") 30;
+}
+.gridDiv:last-child {
+    border-right: 0;
+    padding-right: 0;
+    padding-left: 4%;
+}
+.datediv .listitem:after {
+    content:  url('../../../assets/images/line-x.png');
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 10%;
+    /* height: 1px; */
+    /* background: red; */
+    // border-bottom: 1px dashed transparent;
+    // border-image: url('../../../assets/images/line-x.png') 30;
+    // width: 51%;
+    left: 50%;
+}
+.datediv .listitem {
+    text-align: center;
+    height: 100%;
+    /* margin-right: initial; */
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+.datediv {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 440px;
+}
+
+.gridWrap{
+    display:flex ;
+    justify-content:start;
+}
+@media screen and (max-width: 1050px) {
+    .datediv {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 340px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .datediv {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 280px;
+    }
+
+    .gridDiv.div2{
+        padding: 0 2.5% ;
+    }
+
+    .listitem {
+    .iconbox {
+        width: 48px;
+        height: 48px;
+        line-height: 41px;
+    }}
+}
+@media screen and (max-width: 764px) {
+    .gridWrap{
+        // display:flex ;
+        display: block;
+        justify-content:start;
+    }
+    .gridDiv.div2{
+        border: none;
+    }
+   
+  }
+
+
+
+.datediv .listitem:last-child::after {
+    display: none;
+}

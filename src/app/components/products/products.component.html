@@ -1,1 +1,33 @@
-<p>products works!</p>
+<div class="product-table table-responsive mt-4">
+    <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center" scope="col">Product Id </th>
+            <th  scope="col">Product</th>
+            <th class="text-center" scope="col">Lot Number </th>
+            <th class="text-center" scope="col">AOC Quantity </th>
+            <th class="text-center" scope="col">Requested Quantity </th>
+            <th class="text-center" scope="col">Shipped Quantity </th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="products && products.length>0">
+            <tr *ngFor="let p of products">
+            
+              <td class="text-center">{{p?.productID || ''}}</td>
+              <td>{{p?.prodDesc || ''}}</td>
+              <td class="text-center">{{p?.lotNumber || ''}}</td>
+              <td class="text-center">{{p?.AOCQuantity || ''}}</td>
+              <td class="text-center" >{{p?.reqQuantity || ''}}</td>
+              <td
+              [class.text-danger]="p.reqQuantity !== p.shippedQty" class="text-center" >{{p?.shippedQty || ''}}</td>
+            </tr>
+            <tr>
+          </ng-container>
+          <tr *ngIf="!products || products.length==0">No Product Found</tr>
+           
+         
+        </tbody>
+      </table>
+</div>

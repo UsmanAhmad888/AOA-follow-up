@@ -1,1 +1,264 @@
+// regular style toast
+@import '~ngx-toastr/toastr';
+
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    // font-family: 'Lato', sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+// oac card
+.aocCardheading {
+    h5 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+
+        line-height: 22px;
+        color: #0b0a0a;
+        margin-right: 27px;
+    }
+    h6 {
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+.card {
+    border: none;
+    .bg-light {
+        background: #f4f5fa !important;
+    }
+}
+.gridWrap {
+    justify-content: space-between;
+}
+
+.gridDiv {
+    padding-right: 18px;
+    &:last-child {
+        border-right: 0;
+        padding-right: 0;
+    }
+    .textGroup {
+        font-size: 14px;
+        label {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            color: #000000;
+            min-width: 130px;
+        }
+    }
+}
+.rightgrid {
+    .fedex {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    .textGroup {
+        label {
+            max-width: 145px;
+        }
+    }
+}
+.datediv {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .listitem {
+        text-align: center;
+        height: 100%;
+        margin-right: 100px;
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+            &::after {
+                border: none;
+            }
+        }
+        .iconbox {
+            width: 62px;
+            height: 62px;
+            line-height: 62px;
+            background: #ba828a;
+            text-align: center;
+            border-radius: 100%;
+            margin-bottom: 10px;
+            margin: 0 auto 10px;
+            &.bglightblue {
+                background-color: #535fa9;
+            }
+            &.bgblue {
+                background-color: #123597;
+            }
+        }
+        h5 {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        h6 {
+            font-size: 14px;
+        }
+        &::after {
+            // content: "";
+            // position: absolute;
+            // width: 69.01px;
+            // height: 0;
+            // left: 100px;
+            // top: 35px;
+            // border-bottom: 1px dashed #123597;
+        }
+    }
+}
+.textGroup {
+    .radiodiv {
+        label {
+            min-width: inherit;
+            font-weight: 500;
+        }
+    }
+}
+.inline-form {
+    .textGroup {
+        input {
+            background: #ffffff;
+            border: 1px solid #123597;
+            box-sizing: border-box;
+            border-radius: 100px;
+            width: 250px;
+            height: 30px;
+            font-size: 14px;
+        }
+        select {
+            font-size: 14px;
+            width: 250px;
+            height: 30px;
+            line-height: 1;
+        }
+        select::placeholder {
+            color:#9fa0a5
+        }
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #97abff 0%, #123597 100%);
+        border-radius: 100px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #fff;
+        min-width: 100px;
+        border: none;
+    }
+}
+
+.product-table {
+    border: 1px dashed #000000;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 10px;
+    table {
+        thead {
+            tr {
+                th {
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+            }
+        }
+        :not(:first-child) {
+            border-top: none;
+        }
+    }
+}
+.comments_sec {
+    .col {
+        flex: inherit;
+        width: 270px;
+        height: 218px
+    }
+    .card {
+        overflow: hidden;
+        height: 100%;
+        .rightdate {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            color: #123597;
+            text-align: right;
+        }
+        .card-text {
+            font-size: 14px;
+            height: 42%;
+            span {
+                display: block;
+            }
+        }
+        .daysBottom {
+            background: #be838a;
+            height: 62px;
+            text-align: center;
+            margin: 40px -16px -16px;
+            .box {
+                border-right: 1px dashed #ffffff;
+                padding: 0 23px;
+                margin: 12px 0;
+                h6 {
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: #fff;
+                }
+                b {
+                    font-size: 16px;
+                    color: #fff;
+                }
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.call_detail {
+    textarea {
+        border: none;
+        font-size: 14px;
+        color: #9fa0a5;
+        margin-top: 15px;
+    }
+}
+
+
+.toast-container .ngx-toastr {
+        // padding: 10px !important;
+}
+
+
+.btn-login {
+    background: linear-gradient(135deg, #97abff 0%, #123597 100%);
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    min-width: 100px;
+    border: none;
+}
+// .card-body {
+//     padding: 0 1rem !important;
+// }

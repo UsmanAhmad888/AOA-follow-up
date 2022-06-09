@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://aocdevapi.qpharmacorp.com',
+  // baseUrl: 'https://aocapi.qpharmasit.com',
+  authUrl: 'https://ahlw4he6w4.execute-api.us-east-1.amazonaws.com/dev/Login',
 };
 
 /*

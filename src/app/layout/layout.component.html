@@ -1,13 +1,10 @@
-<div style="background: lightblue;">
-    <app-header></app-header>
-    <div class="container-fluid layout">
-        <div class="card card-container">
-            <app-aoc-status></app-aoc-status>
-            <app-latest-aoc></app-latest-aoc>
-            <app-contact-details></app-contact-details>
-            <app-products></app-products>
-            <app-comments></app-comments>
-            <app-call-details></app-call-details>
+<div class="pb-4 bg-dot">
+    <app-header *ngIf="headerAllowed" ></app-header>
+    <div class="container-fluid layout ">
+        <div class="card card-container min-height">
+            <!-- -->
+            <router-outlet></router-outlet>
+            <!-- <aoc-container></aoc-container> -->
         </div>
-</div>
+    </div>
 </div>

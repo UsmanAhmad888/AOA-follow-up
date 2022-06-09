@@ -1,0 +1,16 @@
+
+<div >
+    <app-aoc-status [status]="vm"></app-aoc-status>
+    <!-- <app-latest-aoc [data]="vm"></app-latest-aoc> -->
+    <ng-container >
+        <app-contact-details [contact]="vm"  (contactEvent)="saveContact($event)" ></app-contact-details>
+    </ng-container>
+    <app-products [products]="vm?.productsList || []"></app-products>
+    <app-comments [comments]="vm?.commentsList || []"></app-comments>
+    <app-call-details [vm]="vm || {}" (callDetailsItems)="addComment($event)"  ></app-call-details>
+    
+</div>
+
+<div *ngIf="idFound" class="" role="alert">
+<app-error [errMsg]="errMsg" ></app-error>
+</div>

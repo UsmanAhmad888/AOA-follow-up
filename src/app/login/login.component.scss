@@ -1,0 +1,108 @@
+.login-body {
+    height: 100vh;
+    background: linear-gradient(134.99deg, #123597 28.56%, rgba(240, 128, 93, 0.94) 113.69%);}
+
+
+    .detail {
+        font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+        color: #757575;
+    }
+
+    .form {
+        position: relative;
+        top: 20%;
+        
+/* Background/White */
+
+background: #FFFFFF;
+/* elevation/depth8 */
+
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.22);
+border-radius: 10px;
+    }
+
+    .btn-login {
+        background: linear-gradient(135deg, #97abff 0%, #123597 100%);
+        border-radius: 100px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #fff;
+        min-width: 100px;
+        border: none;
+    }
+
+    .bg-dot{
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        background-position: 100%;
+        background: url('../../assets/images/bg-dots.png');
+    }
+    .bg-logo{
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        background-position: 100%;
+        background: url('../../assets/images/logo.png');
+    }
+
+    .input {
+        box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+border-radius: 22px;
+    }
+
+    .forgot {
+        /* text/size16 */
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height, or 138% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* color/BlueNM */
+
+color: #01A0E6;
+
+
+    }
+
+    .logo {
+        position: absolute;
+        left: 46.3%;
+        top: 85%;
+    }
+
+    .login-label {
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+/* color/BlueNM */
+
+color: #01A0E6;
+        position: relative;
+        background-color: white;
+        /* text-align: left; */
+        display: block;
+        width: 68px;
+        top: 6px;
+        left: 18px;    
+    }
+
+    input:-webkit-autofill {
+        background: white !important;
+        /* -webkit-text-fill-color: green; */
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
