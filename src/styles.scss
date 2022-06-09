@@ -131,7 +131,7 @@ body {
             border: 1px solid #123597;
             box-sizing: border-box;
             border-radius: 100px;
-            width: 250px;
+            width: 225px;
             height: 30px;
             font-size: 14px;
         }
@@ -262,3 +262,21 @@ body {
 // .card-body {
 //     padding: 0 1rem !important;
 // }
+
+@media (max-width: 1199px) {
+    .product-table table thead tr th {
+        font-size: 14px;
+        min-width: 140px;
+    }
+}
+@media (max-width: 767px) {
+    .contactWidth{
+        width: auto;
+    }
+    .gridWrap{
+        display: block !important;
+    }
+    .gridDiv{
+        padding-left: 0 !important;
+    }
+}

@@ -73,7 +73,7 @@
 .gridDiv.div2 {
     border-right: 1px dashed transparent;
     border-left: 1px dashed transparent;
-    padding: 0px 5%;
+    // padding: 0px 5%;
     border-image: url("../../../assets/images/line.png") 30;
 }
 .gridDiv:last-child {
@@ -101,6 +101,9 @@
     position: relative;
     width: 100%;
     margin: auto;
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
 }
 .datediv {
     height: 100%;
@@ -108,12 +111,14 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    min-width: 440px;
+    min-width: 480px;
+    margin-top: 6%;
 }
 
 .gridWrap{
     display:flex ;
     justify-content:start;
+    align-items: center;
 }
 @media screen and (max-width: 1050px) {
     .datediv {
@@ -123,6 +128,11 @@
         justify-content: space-between;
         width: 100%;
         min-width: 340px;
+    }
+}
+@media (max-width: 992px) {
+    .rightgrid .textGroup label{
+        display: block;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -147,6 +157,7 @@
         line-height: 41px;
     }}
 }
+
 @media screen and (max-width: 764px) {
     .gridWrap{
         // display:flex ;
