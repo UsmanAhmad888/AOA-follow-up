@@ -140,6 +140,9 @@ body {
             width: 250px;
             height: 30px;
             line-height: 1;
+            &.ng-untouched{
+                color: #6c757d;
+            }
         }
         select::placeholder {
             color:#9fa0a5
@@ -188,7 +191,7 @@ body {
     .col {
         flex: inherit;
         width: 270px;
-        height: 218px
+        height: 185px
     }
     .card {
         overflow: hidden;
@@ -209,9 +212,9 @@ body {
         }
         .daysBottom {
             background: #be838a;
-            height: 62px;
+            // height: 100%;
             text-align: center;
-            margin: 40px -16px -16px;
+            margin: 26px -16px -16px;
             .box {
                 border-right: 1px dashed #ffffff;
                 padding: 0 23px;
@@ -241,6 +244,13 @@ body {
         color: #9fa0a5;
         margin-top: 15px;
     }
+    .inline-form {
+        .textGroup{
+            input{
+                min-width: 250px;
+            }
+        }
+    }
 }
 
 
@@ -267,6 +277,10 @@ body {
     .product-table table thead tr th {
         font-size: 14px;
         min-width: 140px;
+    }
+    .rightgrid .textGroup label{
+        display: block;
+        width: 100%;
     }
 }
 @media (max-width: 767px) {

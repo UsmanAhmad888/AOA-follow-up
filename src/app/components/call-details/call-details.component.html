@@ -17,7 +17,7 @@
                   <label for="disp" class="form-label">	Disposition:</label>
 
                   <select [ngClass]="{'is-invalid': displayMessage['callDisposition']}" formControlName="callDisposition" class="form-select" name="disp" aria-label="Default select example">
-                  <option value="" class="" disabled >Please select one</option>
+                  <option value="" class="color_gray" disabled >Please select one</option>
                    <option [value]="1"> Escalate Follow Up</option>
                     <option [value]="2">Left Voice Mail</option>
                     <option [value]="3">No Answer</option>

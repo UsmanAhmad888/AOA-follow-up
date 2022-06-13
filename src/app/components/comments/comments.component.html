@@ -3,14 +3,14 @@
         <h5 >Comments ({{comments.length}})</h5>
     </div>
     
-    <div class="card bg-light py-4 px-2 ">
+    <div class="card bg-light py-3 px-2 ">
         <div class="card-body">
             <div class="row g-3">
-                <div class="col" *ngFor="let com of comments ; let i = index">
+                <div class="col comment" *ngFor="let com of comments ; let i = index">
                   <div class="card">
                     <div class="card-body">
                       <div class="rightdate">{{com?.createDate | date:'d MMM yy'}}</div>
-                      <p class="card-text">{{com?.comment ||''}}</p>
+                      <p class="card-text pt-3">{{com?.comment ||''}}</p>
                         <div class="daysBottom d-flex">
                             <div class="box">
                                <h6> Cadence Days</h6>
