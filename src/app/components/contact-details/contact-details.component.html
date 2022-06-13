@@ -1,72 +1,79 @@
 <div class="contact_detail mt-3">
-    <div class="d-flex align-items-center aocCardheading">
-        <h5 >Contact Details</h5>
-    </div>
-    
-    <div class="card bg-light py-4 px-2 ">
-        <div class="card-body">
-         <div class="gridWrap d-flex justify-content-start" >
-           <div class="gridDiv left-border contactWidth">
-             <div class="textGroup">
-               <label for="RequestId" class=" col-form-label">Preference: </label>
-               <div class="radiodiv">
-                 <div class="form-check form-check-inline">
-                   <input  class="form-check-input"  type="radio" name="inlineRadioOptions" [(ngModel)]="contact.contactPrefereceCode"  id="inlineRadio1" [value]="6301">
-                   <label class="form-check-label" for="inlineRadio1">Email</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input  class="form-check-input" type="radio" name="inlineRadioOptions"  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio2" [value]="6303">
-                    <label class="form-check-label" for="inlineRadio2">Phone</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input  class="form-check-input" type="radio" name="inlineRadioOptions"  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio3" [value]="6302">
-                    <label class="form-check-label" for="inlineRadio3">Fax</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input  class="form-check-input" type="radio" name="inlineRadioOptions"  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio3" [value]="6304">
-                    <label class="form-check-label" for="inlineRadio3">Mail</label>
-                  </div>
-                </div>
-                
+  <div class="d-flex align-items-center aocCardheading">
+    <h5>Contact Details</h5>
+  </div>
+
+
+
+  <div class="card bg-light py-4 px-2 ">
+    <ng-content select="[loader]"></ng-content>
+    <div class="card-body">
+      <div class="gridWrap d-flex justify-content-start">
+        <div class="gridDiv left-border contactWidth">
+          <div class="textGroup">
+            <label for="RequestId" class=" col-form-label">Preference: </label>
+            <div class="radiodiv">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" (click)="changeDataValidation('email')" type="radio" name="inlineRadioOptions"
+                  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio1" [value]="6301">
+                <label class="form-check-label" for="inlineRadio1">Email</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" (click)="changeDataValidation('phone')" type="radio" name="inlineRadioOptions"
+                  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio2" [value]="6303">
+                <label class="form-check-label" for="inlineRadio2">Phone</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" (click)="changeDataValidation('fax')" type="radio" name="inlineRadioOptions"
+                  [(ngModel)]="contact.contactPrefereceCode" id="inlineRadio3" [value]="6302">
+                <label class="form-check-label" for="inlineRadio3">Fax</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                  [(ngModel)]="contact.contactPrefereceCode" (click)="changeDataValidation('mail')" id="inlineRadio3" [value]="6304">
+                <label class="form-check-label" for="inlineRadio3">Mail</label>
               </div>
             </div>
-            
-            <div class="gridDiv ps-5" >
-              
-              <!-- <form class="inline-form"  [formGroup]="contactDetailsForm" > -->
-           <div  class="inline-form" >
-            <div class="row g-3">
+
+          </div>
+        </div>
+
+        <div class="gridDiv ps-5">
+          <div *ngIf="contactDetailsForm" class="inline-form">
+            <form [formGroup]="contactDetailsForm" (ngSubmit)="saveContact()">
+              <div class="row g-3">
                 <div class="col-auto textGroup">
-                    <label for="email" class="form-label">Email</label>
-                    <input [(ngModel)]="contact.emailAddress"  type="text" class="form-control" id="email" email>
-                    <!-- formControlName="emailAddress" <p *ngIf="displayMessage['emailAddress']" class="invalid-feedback">
+                  <label for="email" class="form-label">Email</label>
+                  <input [ngClass]="{'is-invalid': displayMessage['emailAddress']}" formControlName="emailAddress" type="text" class="form-control" id="email" email>
+                   <p *ngIf="displayMessage['emailAddress']" class="invalid-feedback">
                       {{ displayMessage['emailAddress'] }}
-                    </p> -->
-                  </div>
+                    </p>
+                </div>
                 <div class="col-auto textGroup">
                   <!-- [ngClass]="{'is-invalid': displayMessage['phoneNumber']}" -->
-                    <label for="phone" class="form-label">Phone</label>
-                    <input [(ngModel)]="contact.phoneNumber"  type="text" class="form-control" id="phone" >
-                    <!-- formControlName="phoneNumber" <p *ngIf="displayMessage['phoneNumber']" class="invalid-feedback">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input  formControlName="phoneNumber"  type="text" class="form-control" id="phone">
+                   <p *ngIf="displayMessage['phoneNumber']" class="invalid-feedback">
                       {{ displayMessage['phoneNumber'] }}
-                    </p> -->
-                  </div>
+                    </p>
+                </div>
                 <div class="col-auto textGroup">
                   <!-- [ngClass]="{'is-invalid': displayMessage['fax']}" -->
-                    <label for="fax" class="form-label">Fax</label>
-                    <input [(ngModel)]="contact.fax"  type="text" class="form-control" id="fax" >
-                    <!--formControlName="fax" <p *ngIf="displayMessage['fax']" class="invalid-feedback">
+                  <label for="fax" class="form-label">Fax</label>
+                  <input [ngClass]="{'is-invalid': displayMessage['fax']}" formControlName="fax"  type="text" class="form-control" id="fax">
+                  <p *ngIf="displayMessage['fax']" class="invalid-feedback">
                       {{ displayMessage['fax'] }}
-                    </p> -->
-                  </div>
-                  <div class="col-auto align-self-end">
-                    <button (click)="saveContact()" type="submit" class="btn btn-primary">Save</button>
-                  </div>
-            </div>
+                    </p>
+                </div>
+                <div class="col-auto align-self-end">
+                  <button  type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </form>
           </div>
-    
-    </div>
+
         </div>
       </div>
-    
-</div>
+    </div>
+
+  </div>

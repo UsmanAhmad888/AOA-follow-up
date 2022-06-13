@@ -9,25 +9,31 @@
             
          
          <div class="gridDiv w-100 ps-4">
-            
-           <form action="" class="inline-form">
+          <div *ngIf="callDetailsForm" class="inline-form">
+           <form [formGroup]="callDetailsForm" (ngSubmit)="addComment()" action="">
             <div class="row g-3">
                 <div class="col-auto textGroup mb-3">
 
                   <label for="disp" class="form-label">	Disposition:</label>
 
-                  <select [(ngModel)]="vm.callDisposition" class="form-select" name="disp" aria-label="Default select example">
-                    <option [value]="" disabled  selected>Please select one</option>
+                  <select [ngClass]="{'is-invalid': displayMessage['callDisposition']}" formControlName="callDisposition" class="form-select" name="disp" aria-label="Default select example">
+                  <option value="" class="" disabled >Please select one</option>
                    <option [value]="1"> Escalate Follow Up</option>
                     <option [value]="2">Left Voice Mail</option>
                     <option [value]="3">No Answer</option>
                     <option [value]="4">Send AOC <!-- we called and sent fax and all good--></option>
                     <option [value]="5">Unable to determine preference</option>
                   </select>
+                  <p *ngIf="displayMessage['callDisposition']" class="invalid-feedback">
+                    {{ displayMessage['callDisposition'] }}
+                  </p>
                 </div>
                 <div class="col-auto textGroup mb-3">
                     <label for="exampleFormControlInput1" class="form-label">	Spoke To:</label>
-                    <input type="text" class="form-control" name="spokeTo" [(ngModel)]="vm.spokeTo" id="exampleFormControlInput1" placeholder="Contact Name">
+                    <input [ngClass]="{'is-invalid': displayMessage['spokeTo']}" formControlName="spokeTo" type="text" class="form-input form-control" name="spokeTo" id="exampleFormControlInput1" placeholder="Contact Name">
+                    <p *ngIf="displayMessage['spokeTo']" class="invalid-feedback">
+                      {{ displayMessage['spokeTo'] }}
+                    </p>
                   </div>
                
                  
@@ -35,14 +41,18 @@
             <div class="row">
                 <div class="col-12">
                     <div class="mb-3">
-                        <textarea [(ngModel)]="vm.comments" name="comments" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Comments..."></textarea>
+                        <textarea [ngClass]="{'is-invalid': displayMessage['comments']}" formControlName="comments" name="comments" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Comments..."></textarea>
                       </div>
+                      <p *ngIf="displayMessage['comments']" class="invalid-feedback">
+                        {{ displayMessage['comments'] }}
+                      </p>
                       <div class="align-self-end text-end">
-                        <button type="submit" (click)="addComment()" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
                 </div>
             </div>
            </form>
+           </div>
     
     </div>
         </div>

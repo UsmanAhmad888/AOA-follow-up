@@ -13,44 +13,53 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ContactDetailsComponent implements OnInit {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements!: ElementRef[];
+  contactDetailsForm: FormGroup;
   @Input() contact:any;
-  contactDetailsForm: any;
 
   @Output() contactEvent = new EventEmitter<string>();
 
   displayMessage: { [key: string]: string } = {};
-  // private validationMessages: { [key: string]: { [key: string]: string } };
-  // private genericValidator: GenericValidator;
+  private validationMessages: { [key: string]: { [key: string]: string } };
+  private genericValidator: GenericValidator;
 
 
   constructor(private fb: FormBuilder) {
-    // this.validationMessages = ContactDetailsErrors;
-    // this.genericValidator = new GenericValidator(this.validationMessages);
   }
   
   ngOnInit(): void {
-    this.contactDetailsForm = this.contact;
+    this.validationMessages = ContactDetailsErrors;
+    this.genericValidator = new GenericValidator(this.validationMessages);
+    // this.contactDetailsForm = this.contact;
+    this.inItForm()
   }
   
   ngAfterViewInit(): void {
-    // const controlBlurs: Observable<any>[] = this.formInputElements
-    //   .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
-    // merge(this.contactDetailsForm.valueChanges, ...controlBlurs).pipe(
-    //   debounceTime(500)
-    // ).subscribe((value: any) => {
-    //   this.displayMessage = this.genericValidator.processMessages(this.contactDetailsForm);
-    // });
+    const controlBlurs: Observable<any>[] = this.formInputElements
+      .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
+    merge(this.contactDetailsForm.valueChanges, ...controlBlurs).pipe(
+      debounceTime(500)
+    ).subscribe((value: any) => {
+      this.displayMessage = this.genericValidator.processMessages(this.contactDetailsForm);
+    });
+  }
+  
+  changeDataValidation(dataType:'mail' | 'email' | 'fax' | 'phone'){
+    this.contactDetailsForm=this.fb.group({
+      emailAddress: [this.contact.emailAddress || '',dataType=='email' || dataType=='mail' ?[Validators.required]:[] ],
+      phoneNumber: [this.contact.phoneNumber || '',dataType=='phone' ? [Validators.required]:[]],
+      fax: [this.contact.fax || '',dataType=='fax' ? [Validators.required]:[]]
+    })
   }
 
   inItForm() {
     // setTimeout(() => {
     //   console.log("contact form init",this.contact);
       
-      // this.contactDetailsForm = this.fb.group({
-      //   emailAddress: [this.contact.emailAddress || '' ],
-      //   phoneNumber: [this.contact.phoneNumber || ''],
-      //   fax: [this.contact.fax || '']
-      // });
+      this.contactDetailsForm = this.fb.group({
+        emailAddress: [this.contact.emailAddress || '',  ],
+        phoneNumber: [this.contact.phoneNumber || ''],
+        fax: [this.contact.fax || '',[Validators.required]]
+      });
     // }, 400);
   }
 
@@ -61,9 +70,15 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   saveContact() {
-    if(this.isFormValid(this.contact)){
+    if(this.contactDetailsForm.valid){
+
       this.contactEvent.emit(this.contact);
+    }else{
+      this.displayMessage = this.genericValidator.processMessages(this.contactDetailsForm, true);
+
     }
+    // if(this.isFormValid(this.contact)){
+    // }
   }
   isFormValid({contactPrefereceCode , phoneNumber , email , fax}){
     if(contactPrefereceCode === 6303 && phoneNumber === '' ){

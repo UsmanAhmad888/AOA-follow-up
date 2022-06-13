@@ -1,48 +1,51 @@
 <div class="container-fluid login-body">
-<div class="bg-dot h-100">
-  <div class="align-items-center h-100">
-    <div class="col-3 form mx-auto">
-<!-- Default form login -->
-<form class="text-center p-5">
-    <p class="h5 mb-2">SIGN IN</p>
-    <p class="text-center detail">Please sign in to access your account</p>
-    <!-- Email -->
-    <label class="login-label" for="email" > <img src="../../assets/images/Username.png" height="10px" alt="pwd" />  Username</label>
-    <input type="email"    name="email"
-    [(ngModel)]="email"
-     id="defaultLoginFormEmail" class="form-control input mb-4" placeholder="Email">
-    <!-- Password -->
-    <label class="login-label" for="password"><img src="../../assets/images/pwd.png" alt="pwd" />  Password</label>
+  <div class="bg-dot h-100">
+    <div class="align-items-center h-100">
+      <div class="col-3 form mx-auto">
+        <!-- Default form login -->
+        <form class="text-center p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <p class="h5 mb-2">SIGN IN</p>
+          <p class="text-center detail">Please sign in to access your account</p>
+          <!-- username -->
+          <label class="login-label" for="username"> <img src="../../assets/images/Username.png" height="10px"
+              alt="pwd" /> Username</label>
+          <input type="username" [ngClass]="{'is-invalid': displayMessage['username']}" formControlName="username"
+            name="username" id="defaultLoginFormusername" class="form-control input mb-4" placeholder="Username">
+          <p *ngIf="displayMessage['username']" class="invalid-feedback">
+            {{ displayMessage['username'] }}
+          </p>
+          <!-- Password -->
+          <label class="login-label" for="password"><img src="../../assets/images/pwd.png" alt="pwd" /> Password</label>
 
-    <input    name="password"
-    [(ngModel)]="password"
-     type="password" id="defaultLoginFormPassword" class="form-control input mb-4" placeholder="Password">
-    
-    <!-- Sign in button -->
-    <div>
-        <button (click)="onSubmit()"  class="btn btn-login w-100" type="submit">Sign in</button>
-        <div class="alert alert-danger" *ngIf="errorMessage" >{{errorMessage}}</div>
-    </div>
-    <!-- <div>
+          <input name="password" formControlName="password" [ngClass]="{'is-invalid': displayMessage['password']}"
+            type="password" id="defaultLoginFormPassword" class="form-control input mb-4" placeholder="Password">
+          <p *ngIf="displayMessage['password']" class="invalid-feedback">
+            {{ displayMessage['password'] }}
+          </p>
+          <!-- Sign in button -->
+          <div>
+            <button class="btn btn-login w-100" type="submit">Sign in</button>
+            <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+          </div>
+          <!-- <div>
       <p  class="forgot mt-3" >Forgot Password?</p>
     </div> -->
-    <!-- Register -->
-    
-  
-  </form>
-  <!-- Default form login -->
+          <!-- Register -->
 
-</div>
-<div class="row logo">
-  <div class="col-1 ">
-  <img src="../../assets/images/logo.png" alt="logo" />
+
+        </form>
+        <!-- Default form login -->
+
+      </div>
+      <div class="row logo">
+        <div class="col-1 ">
+          <img src="../../assets/images/logo.png" alt="logo" />
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
-  </div>
-</div>
-
-
 
 </div>
-
-</div>
-  

@@ -1,9 +1,17 @@
 
-<div >
+<!-- <div *ngIf="idFound" > -->
+<div  *ngIf="idFound">
     <app-aoc-status [status]="vm"></app-aoc-status>
     <!-- <app-latest-aoc [data]="vm"></app-latest-aoc> -->
-    <ng-container >
-        <app-contact-details [contact]="vm"  (contactEvent)="saveContact($event)" ></app-contact-details>
+    <ng-container *ngIf="vm">
+        <app-contact-details [contact]="vm"  (contactEvent)="saveContact($event)" >
+            <!-- <ng-container *ngIf="loading">
+                <div   loader>
+                    loader
+                    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#94affc" type = "ball-beat" template="<img src='../assets/images/spinner.png' />"  [fullScreen] = "false"></ngx-spinner>
+                </div>
+            </ng-container> -->
+        </app-contact-details>
     </ng-container>
     <app-products [products]="vm?.productsList || []"></app-products>
     <app-comments [comments]="vm?.commentsList || []"></app-comments>
@@ -11,6 +19,6 @@
     
 </div>
 
-<div *ngIf="idFound" class="" role="alert">
+<div *ngIf="!idFound" class="" role="alert">
 <app-error [errMsg]="errMsg" ></app-error>
 </div>

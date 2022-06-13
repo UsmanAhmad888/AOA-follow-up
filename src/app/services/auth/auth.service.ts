@@ -124,12 +124,12 @@ export class AuthService {
   //     }).subscribe();
   // }
 
-  login(username: string, password: string) {
+  login(loginCred:{username: string, password: string}) {
     const loginSubject = new Subject();
 
     this.http.post(
       environment.authUrl + '',
-      { username: username, password: password }
+      loginCred
     )
       .subscribe((res: AuthResult) => {
         

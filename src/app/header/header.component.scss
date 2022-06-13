@@ -12,17 +12,17 @@
     height: 31px;
     // position: relative;
     // right: 20px;
+    
     filter: brightness(0) invert(1);
     cursor: pointer;
 }
 
 .log {
     color: white;
+    cursor: pointer;
     padding-right: .6rem;
 }
 
 
 .logWrapper {
-    cursor: pointer;
-
 }

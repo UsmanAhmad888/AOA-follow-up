@@ -17,6 +17,7 @@ export class AocContainerComponent implements OnInit {
   guid: number;
   idFound: boolean = true;
   errMsg: string = 'No result Found'
+  loader: boolean;
   constructor(
     private apiService: ApiService,
     private authService: AuthService,
@@ -70,9 +71,13 @@ export class AocContainerComponent implements OnInit {
   }
 
   saveContact(event) {
-    this.spinner.show();
+    // this.spinner.show();
+    this.loader=true
     this.apiService.updateContact(event).subscribe(res => {
-      this.spinner.hide();
+      setTimeout(() => {        
+        this.loader=false
+      }, 2000);
+      // this.spinner.hide();
       this.toastr.success('Success! Information updated successfully!', '');
     },
       err => {
